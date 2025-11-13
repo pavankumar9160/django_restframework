@@ -12,7 +12,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     
     
-            path('create_student_record/',create_student_record.as_view(),name="create_student_record"),
+            path('create_student_record/'  ,create_student_record.as_view(),name="create_student_record"),
             
             path('get_student_record/',get_student_record.as_view(),name="get_student_record"),
             path('update_record/',update_record.as_view(),name="update_record"),
