@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+
+        <h1>Candidates</h1>
+      
+        <form method='post'>
+            {% csrf_token %}
+
+            <input type="hidden" name="candidate_id" value="{% if candidate_edit %} {{candidate_edit.id}} {% endif%}">
+                First Name: <input type="text" name="firstname" value="{% if candidate_edit %} {{candidate_edit.first_name}} {% endif%}"><br><br>
+                Last Name: <input type="text" name="lastname"value="{% if candidate_edit %} {{candidate_edit.last_name}} {% endif%}" ><br><br>
+                Email: <input type="email" name="email"value="{% if candidate_edit %} {{candidate_edit.email}} {% endif%}"><br><br> 
+                <button type ="submit">{% if candidate_edit %}Update {% else %} ADD {%endif %}</button>
+      </form>
+
+      <h2> Welcome ,{{ user.username }}</h2>
+
+      <a href="{% url 'logout' %}">Logout</a>
+
+
+      <h2>Rendering all candidates data</h2>
+
+      
+      <table border=1>
+        <tr>
+            <th>firstname</th>
+            <th>lastname</th>
+            <th>email</th>
+            <th>Actions</th>
+
+        </tr>
+        <tr>
+            
+            {% if candidates %}
+            {% for candidate in candidates %}
+
+            <td>{{ candidate.first_name }}</td>
+            <td>{{ candidate.last_name }}</td>
+            <td>{{ candidate.email }}</td>
+            <td>
+                <a href="?edit={{candidate.id}}">Edit</a>
+                <a href="?delete={{candidate.id}}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+        <td colspan ="3">no data</td>
+    </tr>
+    {% endif %}
+      </table>
+
+      
+
+
+
+    </body>
+</html>
