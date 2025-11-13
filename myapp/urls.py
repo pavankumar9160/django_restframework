@@ -14,7 +14,7 @@ urlpatterns = [
     
             path('create_student_record/',create_student_record.as_view(),name="create_student_record"),
             
-            path('get_student_record/',get_student_record.as_view(),name="get_student_record"),
+            path('get_student_record/  ',get_student_record.as_view(),name="get_student_record"),
             path('update_record/',update_record.as_view(),name="update_record"),
             path('create_author_record/',create_author_record.as_view(),name="create_author_record"),
             path('get_author_records/',get_author_records.as_view(),name='get_author_records'),
