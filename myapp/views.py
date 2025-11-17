@@ -17,7 +17,11 @@ from .serializers import *
     
 
      
+<<<<<<< HEAD
 #get new student record  
+=======
+
+>>>>>>> 6ef1e090f6cbb49d32fb82cb723ea75c1bafe382
 class get_student_record(APIView) :    
    
    def post(self,request):
