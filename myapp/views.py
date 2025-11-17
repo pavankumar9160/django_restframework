@@ -146,7 +146,7 @@ class update_author_record(APIView):
    
 from rest_framework import parsers
 
-
+#this is view is for creating a student record
 class create_student_record(APIView):   
    
    parser_classes = [parsers.MultiPartParser, parsers.FormParser]  
