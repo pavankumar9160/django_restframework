@@ -17,7 +17,7 @@ from .serializers import *
     
 
      
-#get new student records    
+
 class get_student_record(APIView) :    
    
    def post(self,request):
