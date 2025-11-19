@@ -12,12 +12,9 @@ from rest_framework import status
 
 
 from .serializers import *
-# Create your views here.
 
-    
 
-     
-#get new student records    
+
 class get_student_record(APIView) :    
    
    def post(self,request):
